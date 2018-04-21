@@ -1,11 +1,10 @@
-package org.spring.aop_demo.b.service.impl;
+package org.spring.aop_demo.c.service.impl;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.spring.aop_demo.b.NeedRecord;
-import org.spring.aop_demo.b.service.DemoService;
+import org.spring.aop_demo.c.service.DemoService;
 
 public class DemoServiceImpl implements DemoService {
 	private static final DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -14,8 +13,11 @@ public class DemoServiceImpl implements DemoService {
 		System.out.println("My name is " + name + ".");
 	}
 
-	@NeedRecord
 	public void print(String str) {
-		System.out.println(DF.format(new Date()) + ": " + str);
+		print(new Date(), str);
+	}
+
+	public void print(Date date, String str) {
+		System.out.println(DF.format(date) + ": " + str);
 	}
 }
